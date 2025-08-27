@@ -1,0 +1,6 @@
+@SteamBacklogTracker.API_HostAddress = http://localhost:5168
+
+GET {{SteamBacklogTracker.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
