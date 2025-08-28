@@ -1,0 +1,500 @@
+/* =================================
+   Form Styles
+   Dark theme form controls, inputs, buttons,
+   and validation styling for gaming interface
+   ================================= */
+
+/* Form Container */
+.gaming-form {
+    background: var(--gaming-surface);
+    border-radius: var(--gaming-border-radius-large);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--gaming-shadow);
+}
+
+.gaming-form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.gaming-form-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.gaming-form-subtitle {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-row.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Form Labels */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-label.required::after {
+    content: '*';
+    color: var(--error-color);
+    margin-left: 0.25rem;
+}
+
+.form-label-info {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Form Inputs */
+.form-input {
+    width: 100%;
+    background: var(--gaming-surface-light);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--gaming-border-radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    transition: var(--gaming-transition-fast);
+    font-family: inherit;
+}
+
+.form-input::placeholder {
+    color: var(--text-disabled);
+    opacity: 0.8;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--steam-blue);
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+    background: var(--gaming-surface-hover);
+}
+
+.form-input:hover:not(:focus) {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Input States */
+.form-input.is-valid {
+    border-color: var(--success-color);
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.form-input.is-invalid {
+    border-color: var(--error-color);
+    background: rgba(244, 67, 54, 0.1);
+}
+
+/* Textarea */
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* Select Dropdown */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23b0b0b0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%231e88e5' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Checkbox and Radio */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    background: var(--gaming-surface-light);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--gaming-transition-fast);
+    flex-shrink: 0;
+}
+
+.form-check-input[type="radio"] {
+    border-radius: 50%;
+}
+
+.form-check-input:checked {
+    background: var(--steam-gradient);
+    border-color: var(--steam-blue);
+}
+
+.form-check-input:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-check-input[type="radio"]:checked::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.form-check-label {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Switch Toggle */
+.form-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.form-switch-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    transition: var(--gaming-transition-fast);
+}
+
+.form-switch-slider::before {
+    position: absolute;
+    content: '';
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: var(--gaming-transition-fast);
+}
+
+.form-switch-input:checked + .form-switch-slider {
+    background: var(--steam-gradient);
+}
+
+.form-switch-input:checked + .form-switch-slider::before {
+    transform: translateX(26px);
+}
+
+/* File Input */
+.form-file {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    background: var(--gaming-surface-light);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: var(--gaming-border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--gaming-transition-fast);
+    width: 100%;
+}
+
+.form-file:hover {
+    border-color: var(--steam-blue);
+    background: var(--gaming-surface-hover);
+}
+
+.form-file-input {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.form-file-text {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.form-file-icon {
+    color: var(--steam-blue);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Validation Messages */
+.form-feedback {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-feedback.valid {
+    color: var(--success-color);
+}
+
+.form-feedback.invalid {
+    color: var(--error-color);
+}
+
+.form-feedback-icon {
+    font-size: 1rem;
+}
+
+/* Button Groups */
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.btn-group.centered {
+    justify-content: center;
+}
+
+.btn-group.spread {
+    justify-content: space-between;
+}
+
+/* Gaming Buttons */
+.gaming-form-btn {
+    background: var(--steam-gradient);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--gaming-border-radius);
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: var(--gaming-transition);
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+}
+
+.gaming-form-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.gaming-form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--gaming-shadow-hover);
+}
+
+.gaming-form-btn:hover::before {
+    left: 100%;
+}
+
+.gaming-form-btn:disabled {
+    background: var(--text-disabled);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.gaming-form-btn:disabled::before {
+    display: none;
+}
+
+/* Secondary Button */
+.gaming-form-btn-secondary {
+    background: transparent;
+    border: 2px solid var(--steam-blue);
+    color: var(--steam-blue);
+}
+
+.gaming-form-btn-secondary:hover {
+    background: var(--steam-blue);
+    color: var(--text-primary);
+}
+
+/* Danger Button */
+.gaming-form-btn-danger {
+    background: linear-gradient(135deg, var(--error-color) 0%, #d32f2f 100%);
+}
+
+.gaming-form-btn-danger:hover {
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+}
+
+/* Search Input with Icon */
+.form-search {
+    position: relative;
+}
+
+.form-search-input {
+    padding-left: 2.5rem;
+}
+
+.form-search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-disabled);
+    font-size: 1.125rem;
+    pointer-events: none;
+}
+
+.form-search-input:focus + .form-search-icon {
+    color: var(--steam-blue);
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.input-group .form-input {
+    border-radius: 0;
+    border-right: none;
+}
+
+.input-group .form-input:first-child {
+    border-top-left-radius: var(--gaming-border-radius);
+    border-bottom-left-radius: var(--gaming-border-radius);
+}
+
+.input-group .form-input:last-child {
+    border-top-right-radius: var(--gaming-border-radius);
+    border-bottom-right-radius: var(--gaming-border-radius);
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-group-text {
+    background: var(--gaming-surface-hover);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    display: flex;
+    align-items: center;
+}
+
+.input-group .form-input:focus ~ .input-group-text {
+    border-color: var(--steam-blue);
+}
+
+/* Progress Bar for Forms */
+.form-progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 6px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.form-progress-bar {
+    height: 100%;
+    background: var(--steam-gradient);
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Form Design */
+@media (max-width: 768px) {
+    .gaming-form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .form-row.three-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group.spread {
+        flex-direction: column-reverse;
+    }
+    
+    .gaming-form-btn {
+        padding: 1rem;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .gaming-form {
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: var(--gaming-border-radius);
+    }
+    
+    .form-input,
+    .gaming-form-btn {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+}

@@ -1,0 +1,379 @@
+/* =================================
+   Steam Backlog Tracker Gaming Theme
+   Steam-inspired dark gaming theme with blue primary colors,
+   achievement gold accents, and gaming-specific visual elements
+   ================================= */
+
+/* CSS Custom Properties - Steam Gaming Color Palette */
+:root {
+    /* Primary Steam Colors */
+    --steam-blue: #1e88e5;
+    --steam-blue-dark: #1565c0;
+    --steam-blue-light: #42a5f5;
+    --steam-blue-hover: #2196f3;
+    
+    /* Secondary Achievement Colors */
+    --achievement-gold: #ffc107;
+    --achievement-gold-dark: #ff8f00;
+    --achievement-gold-light: #ffecb3;
+    
+    /* Dark Gaming Background */
+    --gaming-background: #1a1a1a;
+    --gaming-surface: #2d2d30;
+    --gaming-surface-light: #383838;
+    --gaming-surface-hover: #404040;
+    
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-disabled: #666666;
+    --text-muted: #808080;
+    
+    /* Status Colors */
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --info-color: #2196f3;
+    
+    /* Gaming Gradients */
+    --steam-gradient: linear-gradient(135deg, var(--steam-blue) 0%, var(--steam-blue-dark) 100%);
+    --gaming-surface-gradient: linear-gradient(145deg, var(--gaming-surface) 0%, var(--gaming-surface-light) 100%);
+    --achievement-gradient: linear-gradient(135deg, var(--achievement-gold) 0%, var(--achievement-gold-dark) 100%);
+    
+    /* Shadows */
+    --gaming-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --gaming-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --steam-glow: 0 0 20px rgba(30, 136, 229, 0.3);
+    
+    /* Border Radius */
+    --gaming-border-radius: 8px;
+    --gaming-border-radius-large: 12px;
+    
+    /* Transitions */
+    --gaming-transition: all 0.3s ease;
+    --gaming-transition-fast: all 0.2s ease;
+}
+
+/* Base Dark Theme Application */
+html, body {
+    background-color: var(--gaming-background);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Steam-inspired Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    background: var(--steam-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--steam-blue-light);
+}
+
+/* Gaming Container Styles */
+.gaming-container {
+    background: var(--gaming-surface-gradient);
+    border-radius: var(--gaming-border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--gaming-shadow);
+    transition: var(--gaming-transition);
+}
+
+.gaming-container:hover {
+    box-shadow: var(--gaming-shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Gaming Cards */
+.gaming-card {
+    background: var(--gaming-surface);
+    border-radius: var(--gaming-border-radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--gaming-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.gaming-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--steam-gradient);
+    transition: left 0.5s ease;
+}
+
+.gaming-card:hover {
+    background: var(--gaming-surface-hover);
+    border-color: var(--steam-blue);
+    transform: translateY(-2px);
+    box-shadow: var(--steam-glow);
+}
+
+.gaming-card:hover::before {
+    left: 0;
+}
+
+/* Achievement Progress Styling */
+.achievement-progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+
+.achievement-progress-bar {
+    height: 100%;
+    background: var(--achievement-gradient);
+    border-radius: inherit;
+    transition: width 1s ease-in-out;
+    position: relative;
+}
+
+.achievement-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Steam-inspired Buttons */
+.gaming-btn {
+    background: var(--steam-gradient);
+    color: var(--text-primary);
+    border: none;
+    border-radius: var(--gaming-border-radius);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--gaming-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.gaming-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.gaming-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--gaming-shadow-hover);
+}
+
+.gaming-btn:hover::before {
+    left: 100%;
+}
+
+.gaming-btn-secondary {
+    background: var(--gaming-surface);
+    border: 2px solid var(--steam-blue);
+    color: var(--steam-blue);
+}
+
+.gaming-btn-secondary:hover {
+    background: var(--steam-blue);
+    color: var(--text-primary);
+}
+
+/* Achievement Badge */
+.achievement-badge {
+    background: var(--achievement-gradient);
+    color: var(--gaming-background);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.achievement-badge.unlocked {
+    animation: achievementGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes achievementGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.8); }
+}
+
+/* Gaming Icons */
+.gaming-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.gaming-icon.large {
+    width: 32px;
+    height: 32px;
+}
+
+/* Status Indicators */
+.status-not-started {
+    color: var(--text-disabled);
+    background: rgba(117, 117, 117, 0.2);
+}
+
+.status-in-progress {
+    color: var(--info-color);
+    background: rgba(33, 150, 243, 0.2);
+}
+
+.status-completed {
+    color: var(--success-color);
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.status-abandoned {
+    color: var(--error-color);
+    background: rgba(244, 67, 54, 0.2);
+}
+
+.status-on-hold {
+    color: var(--warning-color);
+    background: rgba(255, 152, 0, 0.2);
+}
+
+/* Gaming Loading Animation */
+.gaming-loading {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(30, 136, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--steam-blue);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Steam Particle Background Effect */
+.gaming-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.gaming-particles::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--steam-blue);
+    border-radius: 50%;
+    animation: float 8s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gaming-container {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .gaming-card {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .gaming-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --gaming-background: #000000;
+        --gaming-surface: #1a1a1a;
+        --text-primary: #ffffff;
+        --steam-blue: #4dabf7;
+        --achievement-gold: #ffd43b;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

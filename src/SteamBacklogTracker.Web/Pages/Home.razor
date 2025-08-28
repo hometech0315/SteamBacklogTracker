@@ -1,7 +1,266 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Dashboard - Steam Backlog Tracker</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1 class="dashboard-title">Steam Backlog Tracker</h1>
+        <p class="dashboard-subtitle">Manage your gaming library with style</p>
+    </div>
+    
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <p class="stat-card-title">Total Games</p>
+                <div class="stat-card-icon">🎮</div>
+            </div>
+            <h2 class="stat-card-value">247</h2>
+            <p class="stat-card-label">Games in library</p>
+            <div class="stat-card-trend trend-positive">
+                ↗️ +12 this month
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <p class="stat-card-title">Hours Played</p>
+                <div class="stat-card-icon">⏰</div>
+            </div>
+            <h2 class="stat-card-value">1,547</h2>
+            <p class="stat-card-label">Total playtime</p>
+            <div class="stat-card-trend trend-positive">
+                ↗️ +23 hours this week
+            </div>
+        </div>
+        
+        <div class="stat-card achievement-stat-card">
+            <div class="stat-card-header">
+                <p class="stat-card-title">Achievements</p>
+                <div class="stat-card-icon">🏆</div>
+            </div>
+            <h2 class="stat-card-value">1,284</h2>
+            <p class="stat-card-label">Unlocked achievements</p>
+            <div class="stat-card-trend trend-positive">
+                ↗️ 89% completion rate
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-card-header">
+                <p class="stat-card-title">Completed Games</p>
+                <div class="stat-card-icon">✅</div>
+            </div>
+            <h2 class="stat-card-value">68</h2>
+            <p class="stat-card-label">Games finished</p>
+            <div class="stat-card-trend trend-neutral">
+                27% completion rate
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gaming Theme Demo Section -->
+    <div class="gaming-demo-section">
+        <MudCard Class="gaming-container">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">🚀 Steam Gaming Theme Features</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="gaming-btn">
+                            Steam Blue Primary
+                        </MudButton>
+                        <MudText Typo="Typo.body2" Class="demo-feature-description">
+                            Primary buttons use Steam's signature blue color
+                        </MudText>
+                    </div>
+                    
+                    <div class="demo-feature">
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="achievement-badge">
+                            Achievement Gold
+                        </MudButton>
+                        <MudText Typo="Typo.body2" Class="demo-feature-description">
+                            Secondary actions use achievement gold
+                        </MudText>
+                    </div>
+                    
+                    <div class="demo-feature">
+                        <div class="achievement-progress">
+                            <div class="achievement-progress-bar" style="width: 75%"></div>
+                        </div>
+                        <MudText Typo="Typo.body2" Class="demo-feature-description">
+                            Animated progress bars with gaming aesthetics
+                        </MudText>
+                    </div>
+                    
+                    <div class="demo-feature">
+                        <MudChip T="string" Color="Color.Success" Class="completion-status completed">
+                            Completed
+                        </MudChip>
+                        <MudChip T="string" Color="Color.Info" Class="completion-status in-progress">
+                            In Progress
+                        </MudChip>
+                        <MudChip T="string" Color="Color.Warning" Class="completion-status on-hold">
+                            On Hold
+                        </MudChip>
+                        <MudText Typo="Typo.body2" Class="demo-feature-description">
+                            Gaming status indicators with glow effects
+                        </MudText>
+                    </div>
+                </div>
+            </MudCardContent>
+        </MudCard>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <MudButton Href="/games" Variant="Variant.Outlined" Color="Color.Primary" 
+                   StartIcon="@Icons.Material.Filled.Games" Class="quick-action-btn">
+            View Game Library
+        </MudButton>
+        <MudButton Href="/achievements" Variant="Variant.Outlined" Color="Color.Secondary" 
+                   StartIcon="@Icons.Material.Filled.EmojiEvents" Class="quick-action-btn">
+            View Achievements
+        </MudButton>
+        <MudButton Href="/sync" Variant="Variant.Outlined" Color="Color.Primary" 
+                   StartIcon="@Icons.Material.Filled.Sync" Class="quick-action-btn">
+            Sync Steam Library
+        </MudButton>
+    </div>
+    
+    <!-- Recent Activity Section -->
+    <div class="recent-activity">
+        <div class="activity-header">
+            <h3 class="activity-title">Recent Gaming Activity</h3>
+            <MudLink Href="/activity" Class="activity-view-all">View All</MudLink>
+        </div>
+        
+        <div class="activity-list">
+            <div class="activity-item">
+                <div class="activity-game-image" style="background: linear-gradient(45deg, #1e88e5, #42a5f5); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    CP77
+                </div>
+                <div class="activity-content">
+                    <h4 class="activity-game-title">Cyberpunk 2077</h4>
+                    <p class="activity-details">Played for 2.5 hours • Unlocked 3 achievements</p>
+                </div>
+                <span class="activity-time">2 hours ago</span>
+            </div>
+            
+            <div class="activity-item">
+                <div class="activity-game-image" style="background: linear-gradient(45deg, #4caf50, #81c784); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    RDR2
+                </div>
+                <div class="activity-content">
+                    <h4 class="activity-game-title">Red Dead Redemption 2</h4>
+                    <p class="activity-details">Played for 4.2 hours • Story progress: 78%</p>
+                </div>
+                <span class="activity-time">1 day ago</span>
+            </div>
+            
+            <div class="activity-item">
+                <div class="activity-game-image" style="background: linear-gradient(45deg, #ff9800, #ffb74d); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    HL:A
+                </div>
+                <div class="activity-content">
+                    <h4 class="activity-game-title">Half-Life: Alyx</h4>
+                    <p class="activity-details">Completed Chapter 5 • Achievement: "Headcrab Whisperer"</p>
+                </div>
+                <span class="activity-time last-played recent">3 days ago</span>
+            </div>
+        </div>
+    </div>
+</div>
 
-Welcome to your new app.
+<style>
+    .gaming-demo-section {
+        margin: 2rem 0;
+    }
+    
+    .demo-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .demo-feature {
+        text-align: center;
+        padding: 1rem;
+        background: var(--gaming-surface-light);
+        border-radius: var(--gaming-border-radius);
+        transition: var(--gaming-transition);
+    }
+    
+    .demo-feature:hover {
+        background: var(--gaming-surface-hover);
+        transform: translateY(-2px);
+    }
+    
+    .demo-feature-description {
+        margin-top: 1rem;
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
+    
+    /* MudBlazor component overrides for gaming theme */
+    .mud-card {
+        background: var(--gaming-surface) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: var(--gaming-shadow) !important;
+    }
+    
+    .mud-card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--gaming-shadow-hover) !important;
+    }
+    
+    .mud-card-header .mud-typography {
+        color: var(--text-primary) !important;
+    }
+    
+    .mud-card-content .mud-typography {
+        color: var(--text-secondary) !important;
+    }
+    
+    .mud-button.mud-button-filled.mud-button-filled-primary {
+        background: var(--steam-gradient) !important;
+        color: white !important;
+    }
+    
+    .mud-button.mud-button-filled.mud-button-filled-secondary {
+        background: var(--achievement-gradient) !important;
+        color: var(--gaming-background) !important;
+    }
+    
+    .mud-button.mud-button-outlined {
+        border-color: var(--steam-blue) !important;
+        color: var(--steam-blue) !important;
+    }
+    
+    .mud-button.mud-button-outlined:hover {
+        background: var(--steam-blue) !important;
+        color: white !important;
+    }
+    
+    .mud-chip.mud-chip-color-success {
+        background: var(--success-color) !important;
+    }
+    
+    .mud-chip.mud-chip-color-info {
+        background: var(--info-color) !important;
+    }
+    
+    .mud-chip.mud-chip-color-warning {
+        background: var(--warning-color) !important;
+    }
+    
+    @@media (max-width: 768px) {
+        .demo-features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

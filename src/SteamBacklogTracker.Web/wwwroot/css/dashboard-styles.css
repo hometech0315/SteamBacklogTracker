@@ -1,0 +1,461 @@
+/* =================================
+   Dashboard Styles
+   Gaming-themed statistics cards, charts,
+   and dashboard layout with Steam aesthetics
+   ================================= */
+
+/* Dashboard Layout */
+.dashboard-container {
+    padding: 1.5rem;
+    background: var(--gaming-background);
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    background: var(--steam-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.dashboard-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+/* Statistics Cards Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--gaming-surface-gradient);
+    border-radius: var(--gaming-border-radius-large);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--gaming-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--steam-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gaming-shadow-hover);
+    border-color: var(--steam-blue);
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Stat Card Content */
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.stat-card-title {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.stat-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--steam-gradient);
+    color: white;
+    font-size: 1.25rem;
+}
+
+.stat-card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1;
+    background: var(--steam-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-card-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.stat-card-trend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.trend-positive {
+    color: var(--success-color);
+}
+
+.trend-negative {
+    color: var(--error-color);
+}
+
+.trend-neutral {
+    color: var(--text-secondary);
+}
+
+/* Achievement Statistics */
+.achievement-stat-card {
+    background: linear-gradient(135deg, var(--achievement-gold-dark) 0%, var(--achievement-gold) 100%);
+    color: var(--gaming-background);
+}
+
+.achievement-stat-card .stat-card-title {
+    color: rgba(26, 26, 26, 0.8);
+}
+
+.achievement-stat-card .stat-card-value {
+    color: var(--gaming-background);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.achievement-stat-card .stat-card-icon {
+    background: rgba(26, 26, 26, 0.2);
+    color: var(--gaming-background);
+}
+
+/* Progress Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    background: var(--gaming-surface);
+    border-radius: var(--gaming-border-radius-large);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.chart-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Progress Rings */
+.progress-ring-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.progress-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: url(#steamGradient);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease-in-out;
+}
+
+.progress-ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-ring-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--steam-blue-light);
+    display: block;
+}
+
+.progress-ring-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Recent Activity Section */
+.recent-activity {
+    background: var(--gaming-surface);
+    border-radius: var(--gaming-border-radius-large);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.activity-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+    font-weight: 600;
+}
+
+.activity-view-all {
+    color: var(--steam-blue);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.activity-view-all:hover {
+    color: var(--steam-blue-light);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--gaming-surface-light);
+    border-radius: var(--gaming-border-radius);
+    transition: var(--gaming-transition);
+}
+
+.activity-item:hover {
+    background: var(--gaming-surface-hover);
+    transform: translateX(5px);
+}
+
+.activity-game-image {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--gaming-border-radius);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-game-title {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+}
+
+.activity-details {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quick-action-btn {
+    background: var(--gaming-surface);
+    border: 2px solid var(--steam-blue);
+    color: var(--steam-blue);
+    padding: 1rem;
+    border-radius: var(--gaming-border-radius);
+    text-decoration: none;
+    transition: var(--gaming-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quick-action-btn:hover {
+    background: var(--steam-blue);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--gaming-shadow-hover);
+}
+
+/* Loading States */
+.dashboard-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(30, 136, 229, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--steam-blue);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .charts-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+    
+    .dashboard-title {
+        font-size: 2rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.25rem;
+    }
+    
+    .stat-card-value {
+        font-size: 2rem;
+    }
+    
+    .chart-container {
+        padding: 1.25rem;
+    }
+    
+    .progress-ring {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .activity-game-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SVG Gradient Definitions */
+.dashboard-svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Dark Theme Enhancements */
+@media (prefers-color-scheme: dark) {
+    .chart-container {
+        background: rgba(45, 45, 48, 0.8);
+        backdrop-filter: blur(10px);
+    }
+    
+    .stat-card {
+        backdrop-filter: blur(5px);
+    }
+}
