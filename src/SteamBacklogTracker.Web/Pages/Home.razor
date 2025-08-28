@@ -97,13 +97,13 @@
                     </div>
                     
                     <div class="demo-feature">
-                        <MudChip T="string" Color="Color.Success" Class="completion-status completed">
+                        <MudChip T="string" Color="Color.Success" Class="demo-status completed">
                             Completed
                         </MudChip>
-                        <MudChip T="string" Color="Color.Info" Class="completion-status in-progress">
+                        <MudChip T="string" Color="Color.Info" Class="demo-status in-progress">
                             In Progress
                         </MudChip>
-                        <MudChip T="string" Color="Color.Warning" Class="completion-status on-hold">
+                        <MudChip T="string" Color="Color.Warning" Class="demo-status on-hold">
                             On Hold
                         </MudChip>
                         <MudText Typo="Typo.body2" Class="demo-feature-description">
@@ -256,6 +256,28 @@
     
     .mud-chip.mud-chip-color-warning {
         background: var(--warning-color) !important;
+    }
+    
+    /* Demo status chips - override absolute positioning */
+    .demo-status {
+        position: static !important;
+        display: inline-flex !important;
+        margin: 0.25rem !important;
+    }
+    
+    .demo-status.completed {
+        background: rgba(76, 175, 80, 0.9) !important;
+        color: white !important;
+    }
+    
+    .demo-status.in-progress {
+        background: rgba(33, 150, 243, 0.9) !important;
+        color: white !important;
+    }
+    
+    .demo-status.on-hold {
+        background: rgba(255, 152, 0, 0.9) !important;
+        color: white !important;
     }
     
     @@media (max-width: 768px) {

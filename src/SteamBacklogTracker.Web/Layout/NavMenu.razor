@@ -15,12 +15,16 @@
                 Dashboard
             </MudNavLink>
             <MudNavLink Href="/games" Icon="@Icons.Material.Filled.Games" Class="nav-link">
-                Game Library
-                <MudBadge Color="Color.Secondary" Content="42" Class="nav-badge" />
+                <div class="nav-link-content">
+                    <span class="nav-link-text">Game Library</span>
+                    <span class="nav-badge secondary">42</span>
+                </div>
             </MudNavLink>
             <MudNavLink Href="/achievements" Icon="@Icons.Material.Filled.EmojiEvents" Class="nav-link">
-                Achievements
-                <MudBadge Color="Color.Warning" Content="156" Class="nav-badge" />
+                <div class="nav-link-content">
+                    <span class="nav-link-text">Achievements</span>
+                    <span class="nav-badge warning">156</span>
+                </div>
             </MudNavLink>
         </div>
         
@@ -143,5 +147,45 @@
     
     .mud-drawer .mud-drawer-content::-webkit-scrollbar-thumb:hover {
         background: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Navigation link content and badges */
+    .nav-link-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .nav-link-text {
+        flex: 1;
+    }
+    
+    .nav-badge {
+        background: var(--achievement-gradient);
+        color: var(--gaming-background);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.125rem 0.375rem;
+        border-radius: 10px;
+        min-width: 20px;
+        text-align: center;
+        animation: badgePulse 2s ease-in-out infinite;
+        margin-left: 0.5rem;
+    }
+    
+    .nav-badge.secondary {
+        background: linear-gradient(135deg, var(--steam-blue) 0%, var(--steam-blue-dark) 100%);
+        color: white;
+    }
+    
+    .nav-badge.warning {
+        background: var(--achievement-gradient);
+        color: var(--gaming-background);
+    }
+    
+    @@keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
     }
 </style>
