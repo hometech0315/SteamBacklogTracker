@@ -1,12 +1,123 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿<MudThemeProvider Theme="@_theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
+        <PageTitle>Game Not Found - Steam Backlog Tracker</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <div class="not-found-container">
+                <div class="not-found-content">
+                    <h1 class="not-found-title">404 - Game Not Found</h1>
+                    <p class="not-found-message">
+                        The page you're looking for seems to have been uninstalled from your library.
+                    </p>
+                    <div class="not-found-actions">
+                        <a href="/" class="gaming-btn">Return to Library</a>
+                    </div>
+                </div>
+            </div>
         </LayoutView>
     </NotFound>
 </Router>
+
+<style>
+    .not-found-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        padding: 2rem;
+    }
+    
+    .not-found-content {
+        text-align: center;
+        max-width: 600px;
+        background: var(--gaming-surface);
+        padding: 3rem 2rem;
+        border-radius: var(--gaming-border-radius-large);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: var(--gaming-shadow);
+    }
+    
+    .not-found-title {
+        font-size: 3rem;
+        background: var(--steam-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+    }
+    
+    .not-found-message {
+        color: var(--text-secondary);
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .not-found-actions {
+        margin-top: 2rem;
+    }
+</style>
+
+@code {
+    private MudTheme _theme = new()
+    {
+        PaletteLight = new PaletteLight()
+        {
+            Primary = "#1e88e5",           // Steam Blue
+            Secondary = "#ffc107",         // Achievement Gold
+            Background = "#1a1a1a",        // Dark Gaming Background
+            Surface = "#2d2d30",           // Gaming Surface
+            AppbarBackground = "#2d2d30",  // Navigation Background
+            DrawerBackground = "#1a1a1a",  // Sidebar Background
+            TextPrimary = "#ffffff",       // Primary Text
+            TextSecondary = "#b0b0b0",     // Secondary Text
+            ActionDefault = "#1e88e5",     // Default Actions
+            ActionDisabled = "#666666",    // Disabled Actions
+            ActionDisabledBackground = "#383838",
+            Divider = "rgba(255, 255, 255, 0.12)",
+            DividerLight = "rgba(255, 255, 255, 0.06)",
+            TableLines = "rgba(255, 255, 255, 0.12)",
+            LinesDefault = "rgba(255, 255, 255, 0.12)",
+            LinesInputs = "rgba(255, 255, 255, 0.3)",
+            TextDisabled = "#666666",
+            Info = "#2196f3",
+            Success = "#4caf50",
+            Warning = "#ff9800",
+            Error = "#f44336",
+            Dark = "#424242"
+        },
+        
+        PaletteDark = new PaletteDark()
+        {
+            Primary = "#1e88e5",           // Steam Blue
+            Secondary = "#ffc107",         // Achievement Gold  
+            Background = "#1a1a1a",        // Dark Gaming Background
+            Surface = "#2d2d30",           // Gaming Surface
+            AppbarBackground = "#2d2d30",  // Navigation Background
+            DrawerBackground = "#1a1a1a",  // Sidebar Background
+            TextPrimary = "#ffffff",       // Primary Text
+            TextSecondary = "#b0b0b0",     // Secondary Text
+            ActionDefault = "#1e88e5",     // Default Actions
+            ActionDisabled = "#666666",    // Disabled Actions
+            ActionDisabledBackground = "#383838",
+            Divider = "rgba(255, 255, 255, 0.12)",
+            DividerLight = "rgba(255, 255, 255, 0.06)",
+            TableLines = "rgba(255, 255, 255, 0.12)",
+            LinesDefault = "rgba(255, 255, 255, 0.12)",
+            LinesInputs = "rgba(255, 255, 255, 0.3)",
+            TextDisabled = "#666666",
+            Info = "#2196f3",
+            Success = "#4caf50",
+            Warning = "#ff9800",
+            Error = "#f44336",
+            Dark = "#424242"
+        }
+    };
+}

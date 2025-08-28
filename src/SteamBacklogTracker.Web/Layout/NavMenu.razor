@@ -1,39 +1,147 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">SteamBacklogTracker.Web</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+﻿<div class="nav-container">
+    <div class="nav-header">
+        <MudLink Href="/" Class="nav-brand">
+            <div class="nav-brand-icon">
+                🎮
+            </div>
+            <div class="nav-brand-text">Steam Backlog</div>
+        </MudLink>
+    </div>
+    
+    <MudNavMenu Class="nav-menu">
+        <div class="nav-section">
+            <div class="nav-section-title">Library</div>
+            <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Class="nav-link">
+                Dashboard
+            </MudNavLink>
+            <MudNavLink Href="/games" Icon="@Icons.Material.Filled.Games" Class="nav-link">
+                Game Library
+                <MudBadge Color="Color.Secondary" Content="42" Class="nav-badge" />
+            </MudNavLink>
+            <MudNavLink Href="/achievements" Icon="@Icons.Material.Filled.EmojiEvents" Class="nav-link">
+                Achievements
+                <MudBadge Color="Color.Warning" Content="156" Class="nav-badge" />
+            </MudNavLink>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Analytics</div>
+            <MudNavLink Href="/statistics" Icon="@Icons.Material.Filled.Analytics" Class="nav-link">
+                Statistics
+            </MudNavLink>
+            <MudNavLink Href="/progress" Icon="@Icons.Material.Filled.TrendingUp" Class="nav-link">
+                Progress Tracking
+            </MudNavLink>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-section-title">Management</div>
+            <MudNavLink Href="/sync" Icon="@Icons.Material.Filled.Sync" Class="nav-link">
+                Sync Steam
+            </MudNavLink>
+            <MudNavLink Href="/settings" Icon="@Icons.Material.Filled.Settings" Class="nav-link">
+                Settings
+            </MudNavLink>
+        </div>
+    </MudNavMenu>
+    
+    <div class="nav-footer">
+        <div class="nav-user">
+            <div class="nav-user-avatar">
+                SG
+            </div>
+            <div class="nav-user-info">
+                <div class="nav-user-name">Steam Gamer</div>
+                <div class="nav-user-status">Online</div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
+<style>
+    /* Override MudBlazor drawer styles for gaming theme */
+    .mud-drawer {
+        background: linear-gradient(180deg, var(--gaming-surface) 0%, var(--gaming-background) 100%) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
-}
+    
+    .mud-navmenu {
+        background: transparent !important;
+    }
+    
+    .mud-nav-link {
+        color: var(--text-secondary) !important;
+        border-radius: 0 !important;
+        margin-bottom: 0.25rem;
+        position: relative;
+    }
+    
+    .mud-nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--steam-gradient);
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+    }
+    
+    .mud-nav-link:hover {
+        background: rgba(255, 255, 255, 0.05) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    .mud-nav-link:hover::before {
+        transform: scaleY(1);
+    }
+    
+    .mud-nav-link.mud-nav-link-active {
+        background: rgba(30, 136, 229, 0.15) !important;
+        color: var(--steam-blue-light) !important;
+    }
+    
+    .mud-nav-link.mud-nav-link-active::before {
+        transform: scaleY(1);
+    }
+    
+    .mud-nav-link.mud-nav-link-active::after {
+        content: '';
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: var(--steam-blue);
+        border-radius: 50%;
+        animation: activePulse 2s ease-in-out infinite;
+    }
+    
+    .mud-nav-link .mud-nav-link-icon {
+        color: inherit !important;
+    }
+    
+    .mud-nav-link .mud-nav-link-text {
+        color: inherit !important;
+    }
+    
+    /* Gaming theme scrollbar */
+    .mud-drawer .mud-drawer-content::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .mud-drawer .mud-drawer-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .mud-drawer .mud-drawer-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+    }
+    
+    .mud-drawer .mud-drawer-content::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+</style>

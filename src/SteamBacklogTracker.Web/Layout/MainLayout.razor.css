@@ -1,77 +1,50 @@
-.page {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+/* Gaming Main Layout Styles */
+.gaming-main-content {
+    background: var(--gaming-background);
+    min-height: 100vh;
+    padding: 0;
 }
 
-main {
-    flex: 1;
+.gaming-container {
+    background: transparent;
+    padding: 1.5rem;
+    max-width: none !important;
 }
 
-.sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+/* MudBlazor Layout Overrides */
+.mud-layout {
+    background: var(--gaming-background) !important;
 }
 
-.top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
+.mud-main-content {
+    background: var(--gaming-background) !important;
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
+.mud-container {
+    background: transparent !important;
+}
 
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
+/* Scroll to Top Button Gaming Style */
+.mud-fab.mud-fab-primary {
+    background: var(--steam-gradient) !important;
+    box-shadow: var(--gaming-shadow) !important;
+    transition: var(--gaming-transition) !important;
+}
 
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.mud-fab.mud-fab-primary:hover {
+    box-shadow: var(--steam-glow), var(--gaming-shadow-hover) !important;
+    transform: translateY(-2px) !important;
+}
 
-@media (max-width: 640.98px) {
-    .top-row {
-        justify-content: space-between;
-    }
-
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        margin-left: 0;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gaming-container {
+        padding: 1rem;
     }
 }
 
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .top-row {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth ::deep a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row, article {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+@media (max-width: 480px) {
+    .gaming-container {
+        padding: 0.75rem;
     }
 }
